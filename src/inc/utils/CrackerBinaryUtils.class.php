@@ -4,7 +4,11 @@ use DBA\CrackerBinary;
 use DBA\QueryFilter;
 
 class CrackerBinaryUtils {
-  
+
+    /**
+     * @param $crackerBinaryTypeId
+     * @return CrackerBinary
+     */
   public static function getNewestVersion($crackerBinaryTypeId) {
     global $FACTORIES;
     

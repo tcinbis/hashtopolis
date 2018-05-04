@@ -317,4 +317,5 @@ class PActions {
   const SEND_BENCHMARK            = "sendBenchmark";
   const SEND_PROGRESS             = "sendProgress";
   const TEST_CONNECTION           = "testConnection";
+  const CREATE_TASK               = "createTask";
 }
