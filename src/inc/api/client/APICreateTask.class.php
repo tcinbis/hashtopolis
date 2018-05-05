@@ -26,7 +26,7 @@ class APICreateTask extends APIBasic{
         global $FACTORIES, $CONFIG, $LOGIN;
 
         // new task creator
-        $name = htmlentities(util::randomString(10));
+        $name = htmlentities("hallo");
         $cmdline = $QUERY["cmdline"];
         $chunk = intval(600);
         $status = intval(5);
