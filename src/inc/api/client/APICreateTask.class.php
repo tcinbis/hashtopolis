@@ -126,7 +126,7 @@ class APICreateTask extends APIBasic{
         $FACTORIES::getAgentFactory()->getDB()->beginTransaction();
         $taskWrapper = new TaskWrapper(0, 0, DTaskTypes::NORMAL, $hashlistId, $accessGroup->getId(), "");
         $taskWrapper = $FACTORIES::getTaskWrapperFactory()->save($taskWrapper);
-        $task = new Task(0, $name, $cmdline, $chunk, $status, 0, 0, 0, $color, $isSmall, $isCpuTask, $useNewBench, $skipKeyspace, $crackerBinary->getId(), $crackerBinaryType->getId(), $taskWrapper->getId());
+        $task = new Task(0, $name, $cmdline, $chunk, $status, 0, 0, 0, $color, $isSmall, $isCpuTask, $useNewBench, $skipKeyspace, CrackerBinaryUtils::getNewestVersion($crackerBinaryType->getId())->getId(), $crackerBinaryType->getId(), $taskWrapper->getId());
         $task = $FACTORIES::getTaskFactory()->save($task);
         if (isset($QUERY["adfile"])) {
             foreach ($QUERY["adfile"] as $fileId) {
