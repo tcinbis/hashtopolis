@@ -90,7 +90,7 @@ class APICreateTask extends APIBasic{
         $accessGroup = $FACTORIES::getAccessGroupFactory()->get($hashlist->getAccessGroupId());
 
         if (strpos($cmdline, $CONFIG->getVal(DConfig::HASHLIST_ALIAS)) === false) {
-            $this->sendErrorResponse("","Missing Hashlist alias");
+            $this->sendErrorResponse("","Missing Hashlist alias in TaskCreation");
         }
         else if ($accessGroup == null) {
             $this->sendErrorResponse("", "Invalid access group!");
