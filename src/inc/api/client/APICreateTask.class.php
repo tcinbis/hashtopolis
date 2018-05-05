@@ -110,14 +110,6 @@ class APICreateTask extends APIBasic{
             $this->sendErrorResponse("", "Chunk time must be higher than status timer!");
         }
 
-        $qF1 = new QueryFilter(AccessGroupUser::ACCESS_GROUP_ID, $accessGroup->getId(), "=");
-        $qF2 = new QueryFilter(AccessGroupUser::USER_ID, $LOGIN->getUserID(), "=");
-        $accessGroupUser = $FACTORIES::getAccessGroupUserFactory()->filter(array($FACTORIES::FILTER => array($qF1, $qF2)), true);
-        if ($accessGroupUser == null) {
-            $this->sendErrorResponse("", "No access to this access group!");
-            return;
-        }
-
         if ($skipKeyspace < 0) {
             $skipKeyspace = 0;
         }
