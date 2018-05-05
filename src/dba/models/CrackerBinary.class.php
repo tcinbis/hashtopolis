@@ -35,7 +35,10 @@ class CrackerBinary extends AbstractModel {
   function getPrimaryKeyValue() {
     return $this->crackerBinaryId;
   }
-  
+
+    /**
+     * @return crackerBinaryId
+     */
   function getId() {
     return $this->crackerBinaryId;
   }

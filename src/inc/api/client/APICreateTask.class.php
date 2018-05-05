@@ -12,6 +12,8 @@ use DBA\AccessGroupUser;
 use DBA\Task;
 use DBA\TaskWrapper;
 use DBA\FileTask;
+use DBA\CrackerBinary;
+
 class APICreateTask extends APIBasic{
 
     /**
@@ -51,7 +53,7 @@ class APICreateTask extends APIBasic{
                 break;
             }
             if (strlen($data) != 393) {
-                UI::printError("ERROR", "Data file only contains " . strlen($data) . " bytes!");
+                $this->sendErrorResponse("","Data file only contains " . strlen($data) . " bytes!");
             }
             // get the SSID
             $network = "";
@@ -146,6 +148,7 @@ class APICreateTask extends APIBasic{
         NotificationHandler::checkNotifications(DNotificationType::NEW_TASK, $payload);
 
         header("Location: $forward");
+        $this->sendResponse("Successfully created task named {$name} and new hashlist");
         die();
     }
 }
