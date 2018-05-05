@@ -148,7 +148,8 @@ class APICreateTask extends APIBasic{
         NotificationHandler::checkNotifications(DNotificationType::NEW_TASK, $payload);
 
         header("Location: $forward");
-        $this->sendErrorResponse("","Successfully created task named {$name} and new hashlist");
+        $stringName = (string)$name;
+        $this->sendErrorResponse("","Successfully created task named {$stringName} and new hashlist");
         die();
     }
 }
