@@ -53,7 +53,7 @@ class APICreateTask extends APIBasic{
                 break;
             }
             if (strlen($data) != 393) {
-                $this->sendErrorResponse("","Data file only contains " . strlen($data) . " bytes!");
+                UI::printError("ERROR", "Data file only contains " . strlen($data) . " bytes!");
             }
             // get the SSID
             $network = "";
