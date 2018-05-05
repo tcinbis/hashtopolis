@@ -26,7 +26,7 @@ class APICreateTask extends APIBasic{
         global $FACTORIES, $CONFIG, $LOGIN;
 
         // new task creator
-        $name = htmlentities("hallo");
+        $name = htmlentities(util::randomString(10));
         $cmdline = $QUERY["cmdline"];
         $chunk = intval(600);
         $status = intval(5);
@@ -139,9 +139,8 @@ class APICreateTask extends APIBasic{
         $payload = new DataSet(array(DPayloadKeys::TASK => $task));
         NotificationHandler::checkNotifications(DNotificationType::NEW_TASK, $payload);
 
-        header("Location: $forward");
-        //$stringName = (string)$name;
-        //$this->sendErrorResponse("","Successfully created task named {$stringName} and new hashlist");
+        $stringName = (string)$name;
+        $this->sendErrorResponse("","Successfully created task named {$stringName} and new hashlist");
         die();
     }
 }
